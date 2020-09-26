@@ -1,10 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Project Genesis
-
-This is a default project template from which you can start new projects. Eslint and 
-basic routing have been configured. 
-
 
 ## Available Scripts
 
