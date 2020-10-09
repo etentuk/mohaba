@@ -26,43 +26,69 @@ const MentalAwareness: FC = () => {
     sleep: ["Wide Awake", "Sleepy"],
   };
   return (
-    <div>
-      <Radio.Group>
-        Please select the option which best describes how alert you are feeling
-        {mentalChoices.alertness.map((mental) => (
-          <Radio value={mental} style={radioStyle}>
-            {mental}
-          </Radio>
-        ))}
-      </Radio.Group>
+    <div
+      style={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <div style={{ paddingTop: "30px" }}>
+        <Radio.Group>
+          Please select the option which best describes how alert you are
+          feeling
+          {mentalChoices.alertness.map((mental) => (
+            <Radio value={mental} style={radioStyle}>
+              {mental}
+            </Radio>
+          ))}
+        </Radio.Group>
 
-      <Radio.Group>
-        Please select the option which best describes how alert you are feeling
-        {mentalChoices.energy.map((energy) => (
-          <Radio value={energy} style={radioStyle}>
-            {energy}
-          </Radio>
-        ))}
-      </Radio.Group>
+        <Radio.Group>
+          Please select the option which best describes how alert you are
+          feeling
+          {mentalChoices.energy.map((energy) => (
+            <Radio value={energy} style={radioStyle}>
+              {energy}
+            </Radio>
+          ))}
+        </Radio.Group>
 
-      <Radio.Group>
-        Please select the option which best describes how alert you are feeling
-        {mentalChoices.excitement.map((excited) => (
-          <Radio value={excited} style={radioStyle}>
-            {excited}
-          </Radio>
-        ))}
-      </Radio.Group>
+        <Radio.Group>
+          Please select the option which best describes how alert you are
+          feeling
+          {mentalChoices.excitement.map((excited) => (
+            <Radio value={excited} style={radioStyle}>
+              {excited}
+            </Radio>
+          ))}
+        </Radio.Group>
 
-      <Radio.Group>
-        Please select the option which best describes how alert you are feeling
-        {mentalChoices.sleep.map((sleep) => (
-          <Radio value={sleep} style={radioStyle}>
-            {sleep}
-          </Radio>
-        ))}
-      </Radio.Group>
-      <Button disabled={!mentalTestResults.alertness}>Proceed</Button>
+        <Radio.Group>
+          Please select the option which best describes how alert you are
+          feeling
+          {mentalChoices.sleep.map((sleep) => (
+            <Radio value={sleep} style={radioStyle}>
+              {sleep}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </div>
+      <div>
+        <Button
+          style={{
+            padding: "10px 25px",
+            border: "none",
+            outline: "none",
+            cursor: "pointer",
+          }}
+          disabled={!mentalTestResults.alertness}
+        >
+          Proceed
+        </Button>
+      </div>
     </div>
   );
 };

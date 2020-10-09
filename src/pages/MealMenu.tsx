@@ -23,31 +23,49 @@ const MealMenu: FC = () => {
     "Gluten-free Canadian Bacon Breakfast Sandwich (280 calories)",
   ];
   return (
-    <div>
-      <Text>
-        Could you please select a meal you would be interested in eating from
-        the menu below
-      </Text>
-      <br />
-      <Radio.Group
-        value={mealChoice}
-        onChange={(e) => setMealChoice(e.target.value)}
-      >
-        {mealMenu.map((meal) => (
-          <Radio value={meal} style={radioStyle}>
-            {meal}
-          </Radio>
-        ))}
-      </Radio.Group>
-      <Button
-        onClick={() => {
-          appState.experiment.meal = mealChoice;
-          appState.currentStep += 1;
-        }}
-        disabled={!mealChoice}
-      >
-        Proceed
-      </Button>
+    <div
+      style={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <div style={{ paddingTop: "30px" }}>
+        <Text>
+          Could you please select a meal you would be interested in eating from
+          the menu below
+        </Text>
+        <br />
+        <Radio.Group
+          value={mealChoice}
+          onChange={(e) => setMealChoice(e.target.value)}
+        >
+          {mealMenu.map((meal) => (
+            <Radio value={meal} style={radioStyle}>
+              {meal}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </div>
+      <div>
+        <Button
+          style={{
+            padding: "10px 25px",
+            border: "none",
+            outline: "none",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            appState.experiment.meal = mealChoice;
+            appState.currentStep += 1;
+          }}
+          disabled={!mealChoice}
+        >
+          Proceed
+        </Button>
+      </div>
     </div>
   );
 };

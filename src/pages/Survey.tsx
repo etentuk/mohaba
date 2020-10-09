@@ -34,13 +34,13 @@ const Survey: FC = () => {
   };
 
   return (
-    <div>
+    <div style={{ height: "100%" }}>
       {/* <Steps current={currentStep}> */}
       {/*  {steps.map((item) => ( */}
       {/*    // <Step key={item.title} title={item.title} /> */}
       {/*  ))} */}
       {/* </Steps> */}
-      <div className="steps-content">{steps[currentStep].content}</div>
+      <div style={{ height: "90%" }}>{steps[currentStep].content}</div>
     </div>
   );
 };
