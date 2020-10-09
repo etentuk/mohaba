@@ -20,6 +20,7 @@ const ParticipantPage: FC = () => {
         value={subject.gender}
         onChange={(e) => setSubject({ ...subject, gender: e.target.value })}
       >
+        Please choose your gender.
         <Radio style={radioStyle} value="male">
           Male
         </Radio>
@@ -31,6 +32,7 @@ const ParticipantPage: FC = () => {
         value={subject.ageRange}
         onChange={(e) => setSubject({ ...subject, ageRange: e.target.value })}
       >
+        Please Select your age range
         {ages.map((age) => (
           <Radio value={age} style={radioStyle}>
             {age}

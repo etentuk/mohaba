@@ -1,11 +1,15 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { Button, Typography } from "antd";
 import appState from "../store";
 
 const { Title: T, Paragraph: P } = Typography;
 
 const Home: FC = () => {
-  console.log("current", appState.currentStep);
+  useEffect(() => {
+    (async () => {
+      await appState.getSongs();
+    })();
+  }, []);
   return (
     <div>
       <T>Mohaba's Experiment</T>
@@ -38,8 +42,8 @@ const Home: FC = () => {
       />
       <Button
         onClick={() => {
+          appState.leftDisabled = false;
           appState.currentStep += 1;
-          console.log(appState.currentStep);
         }}
       >
         Proceed

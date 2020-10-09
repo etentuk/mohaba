@@ -1,10 +1,12 @@
 import React, { FC, useState } from "react";
-import { Button, Radio } from "antd";
+import { Button, Radio, Typography } from "antd";
 import { view } from "@risingstack/react-easy-state";
 import appState from "../store";
 import { radioStyle } from "../ entities/constants";
 
 const SnackMenu: FC = () => {
+  const { Title } = Typography;
+
   const [snackChoice, setSnackChoice] = useState(appState.experiment.snack);
 
   const snacks = [
@@ -14,6 +16,7 @@ const SnackMenu: FC = () => {
 
   return (
     <div>
+      <Title>Appetizer Menu</Title>
       <Radio.Group value={snackChoice}>
         {snacks.map((snack) => (
           <Radio

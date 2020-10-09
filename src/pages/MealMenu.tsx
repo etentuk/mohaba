@@ -5,7 +5,7 @@ import { radioStyle } from "../ entities/constants";
 import appState from "../store";
 
 const MealMenu: FC = () => {
-  const { Text } = Typography;
+  const { Text, Title } = Typography;
 
   const [mealChoice, setMealChoice] = useState(appState.experiment.meal);
 
@@ -24,6 +24,7 @@ const MealMenu: FC = () => {
   ];
   return (
     <div>
+      <Title>Main Course</Title>
       <Text>
         Could you please select a meal you would be interested in eating from
         the menu below

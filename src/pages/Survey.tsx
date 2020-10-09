@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { view } from "@risingstack/react-easy-state";
-import { Steps } from "antd";
+import { Button } from "antd";
+import { ArrowRightOutlined, ArrowLeftOutlined } from "@ant-design/icons";
 import ParticipantPage from "./Participant";
 import Music from "./Music";
 import SnackMenu from "./SnackMenu";
@@ -11,8 +12,6 @@ import appState from "../store";
 import Home from "./Home";
 
 const Survey: FC = () => {
-  const { Step } = Steps;
-
   const steps = [
     { title: "0", content: <Home /> },
     { title: "1", content: <ParticipantPage /> },
@@ -23,9 +22,8 @@ const Survey: FC = () => {
     { title: "6", content: <Conclusion /> },
   ];
 
-  const { currentStep } = appState;
+  const { currentStep, leftDisabled } = appState;
   const onClickBack = () => {
-    if (!appState.currentStep) return;
     appState.currentStep -= 1;
   };
 
@@ -40,7 +38,22 @@ const Survey: FC = () => {
       {/*    // <Step key={item.title} title={item.title} /> */}
       {/*  ))} */}
       {/* </Steps> */}
-      <div className="steps-content">{steps[currentStep].content}</div>
+      <div>{steps[currentStep].content}</div>
+      {currentStep > 2 && (
+        <Button
+          icon={<ArrowLeftOutlined />}
+          onClick={onClickBack}
+          disabled={leftDisabled}
+        />
+      )}
+
+      {currentStep > 2 && currentStep < 6 && (
+        <Button
+          icon={<ArrowRightOutlined />}
+          onClick={onClickForward}
+          disabled={!appState.pages[currentStep - 1].valid}
+        />
+      )}
     </div>
   );
 };
