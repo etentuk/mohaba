@@ -1,0 +1,19 @@
+.contentContainer {
+    overflow: scroll;
+    background: #dbc69f;
+    width: 80%;
+}
+
+.contentContainer::-webkit-scrollbar {
+    display: none;
+    background: #ffffff;
+    padding: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+    margin: 20px;
+    /*max*/
+}

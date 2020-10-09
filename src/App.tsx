@@ -1,10 +1,14 @@
 import React, { FC } from "react";
+import "./App.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import Routes from "./routes/Routes";
+import Routes from "./Routes";
+import Content from "./components/Content/Content";
 
 const App: FC = () => (
   <Router>
-    <Routes />
+    <Content>
+      <Routes />
+    </Content>
   </Router>
 );
 export default App;

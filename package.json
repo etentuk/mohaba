@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "@risingstack/react-easy-state": "^6.3.0",
+    "antd": "^4.6.5",
+    "firebase": "^7.22.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
