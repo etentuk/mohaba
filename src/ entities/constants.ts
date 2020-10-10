@@ -3,3 +3,7 @@ export const radioStyle = {
   height: "30px",
   lineHeight: "30px",
 };
+
+const audioElementId = "audioPlayer";
+
+export { audioElementId };

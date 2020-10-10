@@ -1,11 +1,12 @@
 import React, { FC, useState } from "react";
 import { Button, Radio, Typography } from "antd";
 import { view } from "@risingstack/react-easy-state";
+import { ArrowRightOutlined } from "@ant-design/icons";
 import { radioStyle } from "../ entities/constants";
 import appState from "../store";
 
 const MealMenu: FC = () => {
-  const { Text } = Typography;
+  const { Text, Title } = Typography;
 
   const [mealChoice, setMealChoice] = useState(appState.experiment.meal);
 
@@ -23,49 +24,31 @@ const MealMenu: FC = () => {
     "Gluten-free Canadian Bacon Breakfast Sandwich (280 calories)",
   ];
   return (
-    <div
-      style={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "space-between",
-      }}
-    >
-      <div style={{ paddingTop: "30px" }}>
-        <Text>
-          Could you please select a meal you would be interested in eating from
-          the menu below
-        </Text>
-        <br />
-        <Radio.Group
-          value={mealChoice}
-          onChange={(e) => setMealChoice(e.target.value)}
-        >
-          {mealMenu.map((meal) => (
-            <Radio value={meal} style={radioStyle}>
-              {meal}
-            </Radio>
-          ))}
-        </Radio.Group>
-      </div>
-      <div>
-        <Button
-          style={{
-            padding: "10px 25px",
-            border: "none",
-            outline: "none",
-            cursor: "pointer",
-          }}
-          onClick={() => {
-            appState.experiment.meal = mealChoice;
-            appState.currentStep += 1;
-          }}
-          disabled={!mealChoice}
-        >
-          Proceed
-        </Button>
-      </div>
+    <div>
+      <Title>Main Course</Title>
+      <Text>
+        Could you please select a meal you would be interested in eating from
+        the menu below
+      </Text>
+      <br />
+      <Radio.Group
+        value={mealChoice}
+        onChange={(e) => setMealChoice(e.target.value)}
+      >
+        {mealMenu.map((meal) => (
+          <Radio value={meal} style={radioStyle}>
+            {meal}
+          </Radio>
+        ))}
+      </Radio.Group>
+      <Button
+        onClick={() => {
+          appState.experiment.meal = mealChoice;
+          appState.currentStep += 1;
+        }}
+        icon={<ArrowRightOutlined />}
+        disabled={!mealChoice}
+      />
     </div>
   );
 };

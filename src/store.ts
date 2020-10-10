@@ -1,12 +1,13 @@
 import { store } from "@risingstack/react-easy-state";
 import { Experiment } from "./ entities/types";
+import { db } from "./firebase";
 
 const initialExperiment: Experiment = {
   participant: {
     gender: "",
     ageRange: "",
   },
-  genderSelectionSong: { name: "", url: "" },
+  testSong: { name: "", url: "" },
   songs: [],
   snack: "",
   meal: "",
@@ -16,8 +17,38 @@ const initialExperiment: Experiment = {
 
 const appState = store({
   currentStep: 0,
+  leftDisabled: true,
   experiment: {
     ...initialExperiment,
+  },
+  resetExperiment: () => {
+    appState.experiment = { ...initialExperiment };
+  },
+  fastExperiments: 0,
+  slowExperiments: 0,
+  clearMusicDuration: () => clearTimeout(appState.musicDuration()),
+  musicDuration: () =>
+    setTimeout(() => {
+      appState.currentStep += 1;
+    }, 5000),
+  getSongs: async () => {
+    const rawData = await db
+      .collection("experiments")
+      .doc("AQzgeLyZhRnwvW31R7UD")
+      .get();
+    const data = rawData.data();
+    appState.fastExperiments = data.fastExperiments;
+    appState.slowExperiments = data.slowExperiments;
+
+    if (data.fastExperiments === data.slowExperiments) {
+      appState.experiment.songs = data.fastSongs;
+      appState.experiment.musicSpeed = "fast";
+      appState.experiment.testSong = { ...data.slowSongs[0] };
+    } else {
+      appState.experiment.songs = data.slowSongs;
+      appState.experiment.musicSpeed = "slow";
+      appState.experiment.testSong = { ...data.fastSongs[0] };
+    }
   },
 });
 

@@ -33,7 +33,7 @@ export type Mental = {
 
 export type Experiment = {
   participant: Participant;
-  genderSelectionSong: Music;
+  testSong: Music;
   songs: Music[];
   snack: string;
   meal: string;
