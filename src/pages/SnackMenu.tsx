@@ -3,7 +3,7 @@ import { Button, Radio, Typography } from "antd";
 import { view } from "@risingstack/react-easy-state";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import appState from "../store";
-import { radioStyle } from "../ entities/constants";
+import { mealStyle, radioStyle } from "../ entities/constants";
 
 const SnackMenu: FC = () => {
   const { Title } = Typography;
@@ -16,28 +16,37 @@ const SnackMenu: FC = () => {
   ];
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <Title>Appetizer Menu</Title>
-      <Radio.Group value={snackChoice}>
-        {snacks.map((snack) => (
-          <Radio
-            value={snack}
-            style={radioStyle}
-            onChange={(e) => setSnackChoice(e.target.value)}
-          >
-            {snack}
-          </Radio>
-        ))}
-      </Radio.Group>
-
-      <Button
-        icon={<ArrowRightOutlined />}
-        onClick={() => {
-          appState.experiment.snack = snackChoice;
-          appState.currentStep += 1;
+      <div>
+        <Radio.Group value={snackChoice}>
+          {snacks.map((snack) => (
+            <Radio
+              value={snack}
+              style={mealStyle}
+              onChange={(e) => setSnackChoice(e.target.value)}
+            >
+              {snack}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          right: 0,
         }}
-        disabled={!snackChoice}
-      />
+      >
+        <Button
+          icon={<ArrowRightOutlined />}
+          onClick={() => {
+            appState.experiment.snack = snackChoice;
+            appState.currentStep += 1;
+          }}
+          disabled={!snackChoice}
+        />
+      </div>
     </div>
   );
 };

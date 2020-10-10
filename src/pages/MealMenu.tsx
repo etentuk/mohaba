@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { Button, Radio, Typography } from "antd";
 import { view } from "@risingstack/react-easy-state";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import { radioStyle } from "../ entities/constants";
+import { mealStyle, radioStyle } from "../ entities/constants";
 import appState from "../store";
 
 const MealMenu: FC = () => {
@@ -36,19 +36,27 @@ const MealMenu: FC = () => {
         onChange={(e) => setMealChoice(e.target.value)}
       >
         {mealMenu.map((meal) => (
-          <Radio value={meal} style={radioStyle}>
+          <Radio value={meal} style={mealStyle}>
             {meal}
           </Radio>
         ))}
       </Radio.Group>
-      <Button
-        onClick={() => {
-          appState.experiment.meal = mealChoice;
-          appState.currentStep += 1;
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          right: 0,
         }}
-        icon={<ArrowRightOutlined />}
-        disabled={!mealChoice}
-      />
+      >
+        <Button
+          onClick={() => {
+            appState.experiment.meal = mealChoice;
+            appState.currentStep += 1;
+          }}
+          icon={<ArrowRightOutlined />}
+          disabled={!mealChoice}
+        />
+      </div>
     </div>
   );
 };

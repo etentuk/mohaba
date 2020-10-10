@@ -67,84 +67,122 @@ const MentalAwareness: FC = () => {
   return (
     <div>
       <Title>Mental Awareness</Title>
-      <Text>
-        Please select the option which best describes how alert you are feeling
-      </Text>
-      <Radio.Group
-        onChange={(e) =>
-          setMentalTestResults({
-            ...mentalTestResults,
-            alertness: e.target.value,
-          })
-        }
-        value={mentalTestResults.alertness}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
       >
-        {mentalChoices.alertness.map((mental) => (
-          <Radio value={mental} style={radioStyle}>
-            {mental}
-          </Radio>
-        ))}
-      </Radio.Group>
+        <Text>
+          Please select the option which best describes how alert you are
+          feeling
+        </Text>
+        <Radio.Group
+          onChange={(e) =>
+            setMentalTestResults({
+              ...mentalTestResults,
+              alertness: e.target.value,
+            })
+          }
+          value={mentalTestResults.alertness}
+        >
+          {mentalChoices.alertness.map((mental) => (
+            <Radio value={mental} style={radioStyle}>
+              {mental}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </div>
       <br />
-      <Text>
-        Please select the option which best describes how alert you are feeling
-      </Text>
-      <Radio.Group
-        onChange={(e) =>
-          setMentalTestResults({
-            ...mentalTestResults,
-            energy: e.target.value,
-          })
-        }
-        value={mentalTestResults.energy}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
       >
-        {mentalChoices.energy.map((energy) => (
-          <Radio value={energy} style={radioStyle}>
-            {energy}
-          </Radio>
-        ))}
-      </Radio.Group>
+        {" "}
+        <Text>
+          Please select the option which best describes how alert you are
+          feeling
+        </Text>
+        <Radio.Group
+          onChange={(e) =>
+            setMentalTestResults({
+              ...mentalTestResults,
+              energy: e.target.value,
+            })
+          }
+          value={mentalTestResults.energy}
+        >
+          {mentalChoices.energy.map((energy) => (
+            <Radio value={energy} style={radioStyle}>
+              {energy}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </div>
       <br />
-
-      <Text>
-        Please select the option which best describes how alert you are feeling
-      </Text>
-      <Radio.Group
-        onChange={(e) =>
-          setMentalTestResults({
-            ...mentalTestResults,
-            excitement: e.target.value,
-          })
-        }
-        value={mentalTestResults.excitement}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
       >
-        {mentalChoices.excitement.map((excited) => (
-          <Radio value={excited} style={radioStyle}>
-            {excited}
-          </Radio>
-        ))}
-      </Radio.Group>
+        {" "}
+        <Text>
+          Please select the option which best describes how alert you are
+          feeling
+        </Text>
+        <Radio.Group
+          onChange={(e) =>
+            setMentalTestResults({
+              ...mentalTestResults,
+              excitement: e.target.value,
+            })
+          }
+          value={mentalTestResults.excitement}
+        >
+          {mentalChoices.excitement.map((excited) => (
+            <Radio value={excited} style={radioStyle}>
+              {excited}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </div>
       <br />
-
-      <Text>
-        Please select the option which best describes how alert you are feeling
-      </Text>
-      <Radio.Group
-        onChange={(e) =>
-          setMentalTestResults({
-            ...mentalTestResults,
-            sleep: e.target.value,
-          })
-        }
-        value={mentalTestResults.sleep}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
       >
-        {mentalChoices.sleep.map((sleep) => (
-          <Radio value={sleep} style={radioStyle}>
-            {sleep}
-          </Radio>
-        ))}
-      </Radio.Group>
+        {" "}
+        <Text>
+          Please select the option which best describes how alert you are
+          feeling
+        </Text>
+        <Radio.Group
+          onChange={(e) =>
+            setMentalTestResults({
+              ...mentalTestResults,
+              sleep: e.target.value,
+            })
+          }
+          value={mentalTestResults.sleep}
+        >
+          {mentalChoices.sleep.map((sleep) => (
+            <Radio value={sleep} style={radioStyle}>
+              {sleep}
+            </Radio>
+          ))}
+        </Radio.Group>
+      </div>
       <Button
+        style={{ margin: "30px" }}
         disabled={
           !mentalTestResults.alertness ||
           !mentalTestResults.sleep ||

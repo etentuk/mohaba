@@ -52,7 +52,7 @@ const Survey: FC = () => {
   };
 
   return (
-    <div>
+    <div style={{ width: "90%", height: "90%", position: "relative" }}>
       {/* <Steps current={currentStep}> */}
       {/*  {steps.map((item) => ( */}
       {/*    // <Step key={item.title} title={item.title} /> */}
@@ -90,6 +90,9 @@ const Survey: FC = () => {
         className="steps-action"
         style={{
           marginTop: "24px",
+          position: "absolute",
+          bottom: 0,
+          left: 0,
         }}
       >
         {currentStep > 0 && (

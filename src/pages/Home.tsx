@@ -28,7 +28,7 @@ const Home: FC = () => {
     }
   };
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <audio id="testPlayer" autoPlay src={appState.experiment.testSong.url} />
       <T>Mohaba's Experiment</T>
       <P>
@@ -53,14 +53,13 @@ const Home: FC = () => {
       </P>
       <br />
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <div>
+      <div style={{ marginBottom: "15px" }}>
         {isPlaying ? (
           <PauseCircleOutlined style={{ fontSize: 50 }} onClick={togglePlay} />
         ) : (
           <PlayCircleOutlined style={{ fontSize: 50 }} onClick={togglePlay} />
         )}
       </div>
-
       <Button
         onClick={() => {
           appState.leftDisabled = false;
