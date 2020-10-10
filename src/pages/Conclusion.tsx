@@ -9,9 +9,19 @@ const Conclusion: FC = () => {
     appState.leftDisabled = true;
   }, []);
   return (
-    <Text>
-      Thank you for participating in this experiment. Wishing you a blessed day!
-    </Text>
+    <div
+      style={{
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+      }}
+    >
+      <Text style={{ paddingTop: "30px" }}>
+        Thank you for participating in this experiment. Wishing you a blessed
+        day!
+      </Text>
+    </div>
   );
 };
 

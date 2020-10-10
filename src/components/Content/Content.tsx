@@ -7,7 +7,11 @@ const { Content: C } = Layout;
 const Content: FC = ({ children }) => (
   <div className={styles.container}>
     <div className={styles.contentContainer}>
-      <C className={styles.container}>{children}</C>
+      <div
+        style={{ position: "absolute", top: 0, bottom: 0, left: 0, right: 0 }}
+      >
+        <C className={styles.childContainer}>{children}</C>
+      </div>
     </div>
   </div>
 );

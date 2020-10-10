@@ -30,6 +30,15 @@
   color: #61dafb;
 }
 
+.ant-typography h1 {
+  font-weight: 100;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.ant-layout-content Content_childContainer___fPo- {
+  height: 100%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

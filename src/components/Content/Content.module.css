@@ -2,18 +2,31 @@
     overflow: scroll;
     background: #dbc69f;
     width: 80%;
+    min-height: 70%;
+    box-shadow:
+            0 100px 80px rgba(0, 0, 0, 0.12);
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
 }
 
 .contentContainer::-webkit-scrollbar {
     display: none;
     background: #ffffff;
     padding: 24px;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    padding: 20px 10px;
-    margin: 20px;
-    /*max*/
+    align-items: center;
+    height: 100vh;
+}
+
+.childContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
