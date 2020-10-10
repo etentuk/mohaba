@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { Button, Radio, Typography } from "antd";
 import { view } from "@risingstack/react-easy-state";
+import { ArrowRightOutlined } from "@ant-design/icons";
 import appState from "../store";
 import { radioStyle } from "../ entities/constants";
 
@@ -30,14 +31,13 @@ const SnackMenu: FC = () => {
       </Radio.Group>
 
       <Button
+        icon={<ArrowRightOutlined />}
         onClick={() => {
-          appState.experiment.meal = snackChoice;
+          appState.experiment.snack = snackChoice;
           appState.currentStep += 1;
         }}
         disabled={!snackChoice}
-      >
-        Finish
-      </Button>
+      />
     </div>
   );
 };

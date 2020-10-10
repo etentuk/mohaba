@@ -15,32 +15,31 @@ const initialExperiment: Experiment = {
   musicSpeed: "slow",
 };
 
-const defaultPages = [
-  { name: "participant", valid: false },
-  { name: "music", valid: false },
-  { name: "snackMenu", valid: false },
-  { name: "mealMenu", valid: false },
-  { name: "mentalAwareness", valid: false },
-];
-
 const appState = store({
   currentStep: 0,
   leftDisabled: true,
-  pages: [...defaultPages],
   experiment: {
     ...initialExperiment,
   },
   resetExperiment: () => {
     appState.experiment = { ...initialExperiment };
-    appState.pages = [...defaultPages];
   },
-
+  fastExperiments: 0,
+  slowExperiments: 0,
+  clearMusicDuration: () => clearTimeout(appState.musicDuration()),
+  musicDuration: () =>
+    setTimeout(() => {
+      appState.currentStep += 1;
+    }, 5000),
   getSongs: async () => {
     const rawData = await db
       .collection("experiments")
       .doc("AQzgeLyZhRnwvW31R7UD")
       .get();
     const data = rawData.data();
+    appState.fastExperiments = data.fastExperiments;
+    appState.slowExperiments = data.slowExperiments;
+
     if (data.fastExperiments === data.slowExperiments) {
       appState.experiment.songs = data.fastSongs;
       appState.experiment.musicSpeed = "fast";

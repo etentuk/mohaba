@@ -1,5 +1,6 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Button, Typography } from "antd";
+import { PauseCircleOutlined, PlayCircleOutlined } from "@ant-design/icons";
 import appState from "../store";
 
 const { Title: T, Paragraph: P } = Typography;
@@ -10,8 +11,25 @@ const Home: FC = () => {
       await appState.getSongs();
     })();
   }, []);
+
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    const testPlayer = document.getElementById(
+      "testPlayer"
+    ) as HTMLAudioElement;
+
+    if (testPlayer.paused) {
+      testPlayer.play().then();
+      setIsPlaying(true);
+    } else {
+      testPlayer.pause();
+      setIsPlaying(false);
+    }
+  };
   return (
     <div>
+      <audio id="testPlayer" autoPlay src={appState.experiment.testSong.url} />
       <T>Mohaba's Experiment</T>
       <P>
         Description: The Experiment is part of a research conducted by Casto
@@ -35,11 +53,14 @@ const Home: FC = () => {
       </P>
       <br />
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <audio
-        autoPlay
-        controls
-        src="https://firebasestorage.googleapis.com/v0/b/ghost-photography.appspot.com/o/photography%2F7QiaMcRPVxl6vlWolXmK%2Faudio%2FKoffee%20-%20Lockdown%20(Official%20Video).mp3?alt=media&token=3f4599f1-cf39-45c7-8614-2c12d8be6eed"
-      />
+      <div>
+        {isPlaying ? (
+          <PauseCircleOutlined style={{ fontSize: 50 }} onClick={togglePlay} />
+        ) : (
+          <PlayCircleOutlined style={{ fontSize: 50 }} onClick={togglePlay} />
+        )}
+      </div>
+
       <Button
         onClick={() => {
           appState.leftDisabled = false;
