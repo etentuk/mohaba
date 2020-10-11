@@ -69,7 +69,7 @@ const Survey: FC = () => {
       <div
         className="steps-content"
         style={{
-          marginTop: "16px",
+          margin: "16px 0",
           minHeight: "200px",
           textAlign: "center",
           paddingTop: "40px",
@@ -91,7 +91,7 @@ const Survey: FC = () => {
         style={{
           marginTop: "24px",
           position: "absolute",
-          bottom: 0,
+          bottom: "13px",
           left: 0,
         }}
       >
