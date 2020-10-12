@@ -28,8 +28,8 @@ const Home: FC = () => {
     }
   };
   return (
-    <div style={{ position: "relative" }}>
-      {/* <audio id="testPlayer" autoPlay src={appState.experiment.testSong.url} /> */}
+    <div style={{ position: "relative", marginBottom: "20px" }}>
+      <audio id="testPlayer" autoPlay src={appState.experiment.testSong.url} />
       <T>Mohaba's Experiment</T>
       <P>
         Description: The Experiment is part of a research conducted by Casto

@@ -48,10 +48,10 @@
 }
 
 .forwardBtn {
-  margin-top: 24px;
-  position: absolute;
-  bottom: 13px;
-  right: 32px;
+  /*margin-top: 24px;*/
+  /*position: relative;*/
+  /*!*bottom: 13px;*!*/
+  /*right: -288px;*/
 }
 
 /*Metal Awareness*/
@@ -75,6 +75,11 @@
 
 #noWrap {
   white-space: inherit;
+}
+
+.ant-btn-icon-only {
+  position: absolute;
+  bottom: 0;
 }
 
 @keyframes App-logo-spin {
