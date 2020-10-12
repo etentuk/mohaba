@@ -21,16 +21,8 @@ const appState = store({
   experiment: {
     ...initialExperiment,
   },
-  resetExperiment: () => {
-    appState.experiment = { ...initialExperiment };
-  },
   fastExperiments: 0,
   slowExperiments: 0,
-  clearMusicDuration: () => clearTimeout(appState.musicDuration()),
-  musicDuration: () =>
-    setTimeout(() => {
-      appState.currentStep += 1;
-    }, 5000),
   getSongs: async () => {
     const rawData = await db
       .collection("experiments")
@@ -40,7 +32,7 @@ const appState = store({
     appState.fastExperiments = data.fastExperiments;
     appState.slowExperiments = data.slowExperiments;
 
-    if (data.fastExperiments === data.slowExperiments) {
+    if (appState.fastExperiments <= appState.slowExperiments) {
       appState.experiment.songs = data.fastSongs;
       appState.experiment.musicSpeed = "fast";
       appState.experiment.testSong = { ...data.slowSongs[0] };
