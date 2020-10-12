@@ -30,18 +30,21 @@
   color: #61dafb;
 }
 
-.ant-typography h1 {
-  font-weight: 100;
-  font-family: 'Open Sans', sans-serif;
-}
 
+.ant-typography {
+  font-weight: 200;
+  font-size: 20px;
+  font-family: "Apple Chancery", cursive;
+}
 .ant-layout-content Content_childContainer___fPo- {
   height: 100%;
 }
 
 .ant-radio-group {
   margin-bottom: 24px;
-}
+  font-weight: 200;
+  font-size: 20px;
+  font-family: "Apple Chancery", cursive;}
 
 .forwardBtn {
   display: flex;

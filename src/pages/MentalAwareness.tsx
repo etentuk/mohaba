@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Button, Radio, Typography } from "antd";
+import { ArrowRightOutlined } from "@ant-design/icons";
 import appState from "../store";
-import { radioStyle } from "../ entities/constants";
 import { Mental } from "../ entities/types";
 import { db, getTimeStamp } from "../firebase";
 
@@ -10,7 +10,7 @@ const MentalAwareness: FC = () => {
     appState.experiment.mental
   );
 
-  const { Text, Title } = Typography;
+  const { Paragraph: P, Title } = Typography;
 
   const mentalChoices = {
     alertness: [
@@ -60,7 +60,6 @@ const MentalAwareness: FC = () => {
         .doc("AQzgeLyZhRnwvW31R7UD")
         .update({ slowExperiments: appState.slowExperiments + 1 });
     }
-    appState.resetExperiment();
     appState.currentStep += 1;
   };
 
@@ -68,10 +67,10 @@ const MentalAwareness: FC = () => {
     <div>
       <Title>Mental Awareness</Title>
       <div className="mental">
-        <Text>
-          Please select the option which best describes how alert you are
-          feeling
-        </Text>
+        <P>
+          To conclude the study please select what closely matches how you feel
+          at this moment from the options below
+        </P>
         <Radio.Group
           onChange={(e) =>
             setMentalTestResults({
@@ -82,7 +81,12 @@ const MentalAwareness: FC = () => {
           value={mentalTestResults.alertness}
         >
           {mentalChoices.alertness.map((mental) => (
-            <Radio value={mental} className="metalLists" id="noWrap">
+            <Radio
+              value={mental}
+              key={mental}
+              className="metalLists"
+              id="noWrap"
+            >
               {mental}
             </Radio>
           ))}
@@ -90,10 +94,10 @@ const MentalAwareness: FC = () => {
       </div>
       <br />
       <div className="mental">
-        <Text>
-          Please select the option which best describes how alert you are
-          feeling
-        </Text>
+        <P>
+          Please select what closely matches how energetic you feel at this
+          moment from the options below
+        </P>
         <Radio.Group
           onChange={(e) =>
             setMentalTestResults({
@@ -104,7 +108,12 @@ const MentalAwareness: FC = () => {
           value={mentalTestResults.energy}
         >
           {mentalChoices.energy.map((energy) => (
-            <Radio value={energy} className="metalLists" id="noWrap">
+            <Radio
+              value={energy}
+              key={energy}
+              className="metalLists"
+              id="noWrap"
+            >
               {energy}
             </Radio>
           ))}
@@ -112,10 +121,10 @@ const MentalAwareness: FC = () => {
       </div>
       <br />
       <div className="mental">
-        <Text>
-          Please select the option which best describes how alert you are
-          feeling
-        </Text>
+        <P>
+          Please select what closely matches how excited you feel at this moment
+          from the options below
+        </P>
         <Radio.Group
           onChange={(e) =>
             setMentalTestResults({
@@ -126,7 +135,12 @@ const MentalAwareness: FC = () => {
           value={mentalTestResults.excitement}
         >
           {mentalChoices.excitement.map((excited) => (
-            <Radio value={excited} className="metalLists" id="noWrap">
+            <Radio
+              value={excited}
+              key={excited}
+              className="metalLists"
+              id="noWrap"
+            >
               {excited}
             </Radio>
           ))}
@@ -134,10 +148,10 @@ const MentalAwareness: FC = () => {
       </div>
       <br />
       <div className="mental">
-        <Text>
-          Please select the option which best describes how alert you are
-          feeling
-        </Text>
+        <P>
+          Please select what closely matches how sleepy you feel at this moment
+          from the options below
+        </P>
         <Radio.Group
           onChange={(e) =>
             setMentalTestResults({
@@ -148,13 +162,14 @@ const MentalAwareness: FC = () => {
           value={mentalTestResults.sleep}
         >
           {mentalChoices.sleep.map((sleep) => (
-            <Radio value={sleep} className="metalLists" id="noWrap">
+            <Radio value={sleep} key={sleep} className="metalLists" id="noWrap">
               {sleep}
             </Radio>
           ))}
         </Radio.Group>
       </div>
       <Button
+        icon={<ArrowRightOutlined />}
         style={{ margin: "30px" }}
         disabled={
           !mentalTestResults.alertness ||
@@ -166,7 +181,7 @@ const MentalAwareness: FC = () => {
           submitSurvey().then(null);
         }}
       >
-        Finish
+        Submit Answers
       </Button>
     </div>
   );

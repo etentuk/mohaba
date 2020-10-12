@@ -22,17 +22,16 @@ const Survey: FC = () => {
   const { Step } = Steps;
 
   const steps = [
-    { title: "0", content: <Home /> },
-    { title: "1", content: <ParticipantPage /> },
-    { title: "2", content: <Music /> },
-    { title: "3", content: <SnackMenu /> },
-    { title: "4", content: <MealMenu /> },
-    { title: "5", content: <MentalAwareness /> },
-    { title: "6", content: <Conclusion /> },
+    { title: "", content: <Home /> },
+    { title: "", content: <ParticipantPage /> },
+    { title: "", content: <Music /> },
+    { title: "", content: <SnackMenu /> },
+    { title: "", content: <MealMenu /> },
+    { title: "", content: <MentalAwareness /> },
+    { title: "", content: <Conclusion /> },
   ];
 
   const onClickBack = () => {
-    if (currentStep === 2) appState.clearMusicDuration();
     appState.currentStep -= 1;
   };
 
@@ -53,17 +52,9 @@ const Survey: FC = () => {
 
   return (
     <div style={{ width: "90%", height: "90%", position: "relative" }}>
-      {/* <Steps current={currentStep}> */}
-      {/*  {steps.map((item) => ( */}
-      {/*    // <Step key={item.title} title={item.title} /> */}
-      {/*  ))} */}
-      {/* </Steps> */}
-      {/* <div>{appState.currentStep}</div> */}
-      {/* <div>{steps[currentStep].content}</div> */}
-
       <Steps current={currentStep}>
-        {steps.map((item) => (
-          <Step key={item.title} title={item.title} />
+        {steps.map((item, index) => (
+          <Step key={index.toString()} />
         ))}
       </Steps>
       <div
@@ -104,14 +95,6 @@ const Survey: FC = () => {
             disabled={leftDisabled}
           />
         )}
-
-        {/* {currentStep > 2 && currentStep < 6 && ( */}
-        {/*  <Button */}
-        {/*    icon={<ArrowRightOutlined />} */}
-        {/*    onClick={onClickForward} */}
-        {/*    disabled={!appState.pages[currentStep - 1].valid} */}
-        {/*  /> */}
-        {/* )} */}
       </div>
     </div>
   );
