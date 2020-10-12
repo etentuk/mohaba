@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Button, Radio, Typography } from "antd";
+import { Button, message, Radio, Typography } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { Participant } from "../ entities/types";
 import appState from "../store";
@@ -7,7 +7,7 @@ import { radioStyle } from "../ entities/constants";
 
 const ParticipantPage: FC = () => {
   const { participant } = appState.experiment;
-  const { Title } = Typography;
+  const { Title, Paragraph: P } = Typography;
 
   const [subject, setSubject] = useState<Participant>(
     appState.experiment.participant
@@ -37,11 +37,11 @@ const ParticipantPage: FC = () => {
             alignItems: "center",
           }}
         >
+          <P>Gender</P>
           <Radio.Group
             value={subject.gender}
             onChange={(e) => setSubject({ ...subject, gender: e.target.value })}
           >
-            Please choose your gender.
             <Radio style={radioStyle} value="male">
               Male
             </Radio>
@@ -52,15 +52,18 @@ const ParticipantPage: FC = () => {
         </div>
 
         <div>
+          <P>
+            Please select what closely describes your age group from the options
+            below
+          </P>
           <Radio.Group
             value={subject.ageRange}
             onChange={(e) =>
               setSubject({ ...subject, ageRange: e.target.value })
             }
           >
-            Please Select your age range
             {ages.map((age) => (
-              <Radio value={age} style={radioStyle}>
+              <Radio value={age} style={radioStyle} key={age}>
                 {age}
               </Radio>
             ))}
@@ -74,7 +77,11 @@ const ParticipantPage: FC = () => {
           onClick={() => {
             participant.ageRange = subject.ageRange;
             participant.gender = subject.gender;
-            appState.currentStep += 1;
+            message.info("You'll be taken to the next page in 20 seconds...");
+            const timer = setTimeout(() => {
+              appState.currentStep += 1;
+            }, 4000);
+            return () => clearTimeout(timer);
           }}
         />
       </div>

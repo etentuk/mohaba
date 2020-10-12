@@ -1,12 +1,18 @@
-import React, { FC, useState } from "react";
-import { Button, Radio, Typography } from "antd";
+import React, { FC, useEffect, useState } from "react";
+import { Button, message, Radio, Typography } from "antd";
 import { view } from "@risingstack/react-easy-state";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import { mealStyle, radioStyle } from "../ entities/constants";
+import { mealStyle } from "../ entities/constants";
 import appState from "../store";
 
 const MealMenu: FC = () => {
-  const { Text, Title } = Typography;
+  const { Title, Paragraph: P } = Typography;
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const [mealChoice, setMealChoice] = useState(appState.experiment.meal);
 
@@ -23,34 +29,56 @@ const MealMenu: FC = () => {
     "Spicy Chorizo Monterey Jack and Egg (500 calories)",
     "Gluten-free Canadian Bacon Breakfast Sandwich (280 calories)",
   ];
+
   return (
     <div>
       <Title>Main Course</Title>
-      <Text>
-        Could you please select a meal you would be interested in eating from
-        the menu below
-      </Text>
-      <br />
-      <Radio.Group
-        value={mealChoice}
-        onChange={(e) => setMealChoice(e.target.value)}
-      >
-        {mealMenu.map((meal) => (
-          <Radio value={meal} style={mealStyle} className="mealMenuSpan">
-            {meal}
-          </Radio>
-        ))}
-      </Radio.Group>
-      <div className="forwardBtn">
-        <Button
-          onClick={() => {
-            appState.experiment.meal = mealChoice;
-            appState.currentStep += 1;
-          }}
-          icon={<ArrowRightOutlined />}
-          disabled={!mealChoice}
-        />
-      </div>
+      {visible ? (
+        <>
+          <P>
+            Please as at a restaurant setting please imagine you about to select
+            an item from the menu and select what you feel like having this
+            moment
+          </P>
+          <br />
+          <Radio.Group
+            value={mealChoice}
+            onChange={(e) => setMealChoice(e.target.value)}
+          >
+            {mealMenu.map((meal) => (
+              <Radio
+                value={meal}
+                key={meal}
+                style={mealStyle}
+                className="mealMenuSpan"
+              >
+                {meal}
+              </Radio>
+            ))}
+          </Radio.Group>
+          <div className="forwardBtn">
+            <Button
+              onClick={() => {
+                appState.experiment.meal = mealChoice;
+                message.info(
+                  "You'll be taken to the next page in 20 seconds..."
+                );
+                const timer = setTimeout(() => {
+                  appState.currentStep += 1;
+                }, 4000);
+                return () => clearTimeout(timer);
+              }}
+              icon={<ArrowRightOutlined />}
+              disabled={!mealChoice}
+            />
+          </div>
+        </>
+      ) : (
+        <P>
+          Please listen to the music for the next 40 seconds after which you can
+          make your choice.
+        </P>
+      )}
     </div>
   );
 };

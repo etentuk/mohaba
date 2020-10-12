@@ -5,7 +5,6 @@ import appState from "../store";
 const Conclusion: FC = () => {
   const { Text } = Typography;
   useEffect(() => {
-    appState.resetExperiment();
     appState.leftDisabled = true;
   }, []);
   return (
