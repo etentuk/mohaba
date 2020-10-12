@@ -88,12 +88,14 @@ const Survey: FC = () => {
       )}
       <div
         className="steps-action"
-        style={{
-          marginTop: "24px",
-          position: "absolute",
-          bottom: "13px",
-          left: 0,
-        }}
+        style={
+          {
+            // marginTop: "24px",
+            // position: "absolute",
+            // bottom: "13px",
+            // left: 0,
+          }
+        }
       >
         {currentStep > 0 && (
           <Button

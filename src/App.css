@@ -48,10 +48,10 @@
 }
 
 .forwardBtn {
-  margin-top: 24px;
-  position: absolute;
-  bottom: 13px;
-  right: 32px;
+  /*margin-top: 24px;*/
+  /*position: relative;*/
+  /*!*bottom: 13px;*!*/
+  /*right: -288px;*/
 }
 
 /*Metal Awareness*/
