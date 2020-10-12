@@ -39,19 +39,19 @@
   height: 100%;
 }
 
-.ant-btn-icon-only {
-  position: fixed;
-}
-
 .ant-radio-group {
   margin-bottom: 24px;
 }
 
 .forwardBtn {
-  /*margin-top: 24px;*/
-  /*position: relative;*/
-  /*!*bottom: 13px;*!*/
-  /*right: -288px;*/
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  width: 50%;
+  float: right;
+
+  /*right: 0;*/
+  /*bottom: 0;*/
 }
 
 /*Metal Awareness*/
@@ -78,8 +78,8 @@
 }
 
 .ant-btn-icon-only {
-  position: absolute;
-  bottom: 0;
+  /*position: fixed;*/
+  /*bottom: 50px;*/
 }
 
 @keyframes App-logo-spin {
