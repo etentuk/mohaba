@@ -77,6 +77,11 @@
   white-space: inherit;
 }
 
+.ant-btn-icon-only {
+  position: absolute;
+  bottom: 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
