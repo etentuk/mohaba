@@ -67,13 +67,7 @@ const MentalAwareness: FC = () => {
   return (
     <div>
       <Title>Mental Awareness</Title>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
+      <div className="mental">
         <Text>
           Please select the option which best describes how alert you are
           feeling
@@ -88,21 +82,14 @@ const MentalAwareness: FC = () => {
           value={mentalTestResults.alertness}
         >
           {mentalChoices.alertness.map((mental) => (
-            <Radio value={mental} style={radioStyle}>
+            <Radio value={mental} className="metalLists" id="noWrap">
               {mental}
             </Radio>
           ))}
         </Radio.Group>
       </div>
       <br />
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        {" "}
+      <div className="mental">
         <Text>
           Please select the option which best describes how alert you are
           feeling
@@ -117,21 +104,14 @@ const MentalAwareness: FC = () => {
           value={mentalTestResults.energy}
         >
           {mentalChoices.energy.map((energy) => (
-            <Radio value={energy} style={radioStyle}>
+            <Radio value={energy} className="metalLists" id="noWrap">
               {energy}
             </Radio>
           ))}
         </Radio.Group>
       </div>
       <br />
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        {" "}
+      <div className="mental">
         <Text>
           Please select the option which best describes how alert you are
           feeling
@@ -146,21 +126,14 @@ const MentalAwareness: FC = () => {
           value={mentalTestResults.excitement}
         >
           {mentalChoices.excitement.map((excited) => (
-            <Radio value={excited} style={radioStyle}>
+            <Radio value={excited} className="metalLists" id="noWrap">
               {excited}
             </Radio>
           ))}
         </Radio.Group>
       </div>
       <br />
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        {" "}
+      <div className="mental">
         <Text>
           Please select the option which best describes how alert you are
           feeling
@@ -175,7 +148,7 @@ const MentalAwareness: FC = () => {
           value={mentalTestResults.sleep}
         >
           {mentalChoices.sleep.map((sleep) => (
-            <Radio value={sleep} style={radioStyle}>
+            <Radio value={sleep} className="metalLists" id="noWrap">
               {sleep}
             </Radio>
           ))}

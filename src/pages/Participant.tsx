@@ -67,13 +67,7 @@ const ParticipantPage: FC = () => {
           </Radio.Group>
         </div>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          right: 0,
-        }}
-      >
+      <div className="forwardBtn">
         <Button
           icon={<ArrowRightOutlined />}
           disabled={!subject.ageRange || !subject.gender}

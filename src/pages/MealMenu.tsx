@@ -36,18 +36,12 @@ const MealMenu: FC = () => {
         onChange={(e) => setMealChoice(e.target.value)}
       >
         {mealMenu.map((meal) => (
-          <Radio value={meal} style={mealStyle}>
+          <Radio value={meal} style={mealStyle} className="mealMenuSpan">
             {meal}
           </Radio>
         ))}
       </Radio.Group>
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          right: 0,
-        }}
-      >
+      <div className="forwardBtn">
         <Button
           onClick={() => {
             appState.experiment.meal = mealChoice;

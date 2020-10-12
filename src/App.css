@@ -39,6 +39,44 @@
   height: 100%;
 }
 
+.ant-btn-icon-only {
+  position: fixed;
+}
+
+.ant-radio-group {
+  margin-bottom: 24px;
+}
+
+.forwardBtn {
+  margin-top: 24px;
+  position: absolute;
+  bottom: 13px;
+  right: 32px;
+}
+
+/*Metal Awareness*/
+.metalLists {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  line-height: 30px;
+}
+
+.mental {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mealMenuSpan > span.ant-radio + *,
+.snack > span.ant-radio + *{
+  white-space: pre-wrap;
+}
+
+#noWrap {
+  white-space: inherit;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -46,4 +84,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@media (max-width: 480px) {
+  .ant-steps-horizontal.ant-steps-label-horizontal {
+    display: -ms-flexbox;
+    display: flex;
+    overflow: scroll;
+     flex-direction: row;
+  }
+
+  .musicImg {
+    width: 70%;
+    height: 200px;
+  }
+
+  .ant-radio-wrapper {
+    font-size: 12px;
+  }
+
+  .mental {
+    align-items: flex-start;
+  }
+
+  /*.Content_contentContainer__6EAQC {*/
+  /*  width: 90%;*/
+  /*  min-height: 90%;*/
+  /*}*/
 }

@@ -23,6 +23,7 @@ const SnackMenu: FC = () => {
           {snacks.map((snack) => (
             <Radio
               value={snack}
+              className="snack"
               style={mealStyle}
               onChange={(e) => setSnackChoice(e.target.value)}
             >
@@ -31,13 +32,7 @@ const SnackMenu: FC = () => {
           ))}
         </Radio.Group>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          right: 0,
-        }}
-      >
+      <div className="forwardBtn">
         <Button
           icon={<ArrowRightOutlined />}
           onClick={() => {
