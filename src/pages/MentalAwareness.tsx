@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { Button, Radio, Typography } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
+import { view } from "@risingstack/react-easy-state";
 import appState from "../store";
 import { Mental } from "../ entities/types";
 import { db, getTimeStamp } from "../firebase";
@@ -190,4 +191,4 @@ const MentalAwareness: FC = () => {
   );
 };
 
-export default MentalAwareness;
+export default view(MentalAwareness);
