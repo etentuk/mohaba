@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
-import { Button, message, Radio, Typography } from "antd";
+import { Button, Radio, Typography } from "antd";
 import { view } from "@risingstack/react-easy-state";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { mealStyle } from "../ entities/constants";
 import appState from "../store";
+import { nextPage } from "../functions";
 
 const MealMenu: FC = () => {
   const { Title, Paragraph: P } = Typography;
@@ -62,13 +63,7 @@ const MealMenu: FC = () => {
               onClick={() => {
                 setClicked(true);
                 appState.experiment.meal = mealChoice;
-                message.info(
-                  "You'll be taken to the next page in 20 seconds..."
-                );
-                const timer = setTimeout(() => {
-                  appState.currentStep += 1;
-                }, 20000);
-                return () => clearTimeout(timer);
+                nextPage();
               }}
               icon={<ArrowRightOutlined />}
               disabled={!mealChoice || clicked}

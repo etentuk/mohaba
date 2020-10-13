@@ -1,10 +1,11 @@
 import React, { FC, useState } from "react";
-import { Button, message, Radio, Typography } from "antd";
+import { Button, Radio, Typography } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { view } from "@risingstack/react-easy-state";
 import { Participant } from "../ entities/types";
 import appState from "../store";
 import { radioStyle } from "../ entities/constants";
+import { nextPage } from "../functions";
 
 const ParticipantPage: FC = () => {
   const { participant } = appState.experiment;
@@ -82,11 +83,7 @@ const ParticipantPage: FC = () => {
             setClicked(true);
             participant.ageRange = subject.ageRange;
             participant.gender = subject.gender;
-            message.info("You'll be taken to the next page in 20 seconds...");
-            const timer = setTimeout(() => {
-              appState.currentStep += 1;
-            }, 20000);
-            return () => clearTimeout(timer);
+            nextPage();
           }}
         />
       </div>
