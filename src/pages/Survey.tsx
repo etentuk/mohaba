@@ -51,7 +51,14 @@ const Survey: FC = () => {
   };
 
   return (
-    <div style={{ width: "90%", height: "90%", position: "relative" }}>
+    <div
+      style={{
+        width: "90%",
+        height: "90%",
+        position: "relative",
+        // paddingBottom: "30px",
+      }}
+    >
       <Steps current={currentStep}>
         {steps.map((item, index) => (
           <Step key={index.toString()} />
@@ -80,12 +87,10 @@ const Survey: FC = () => {
       <div
         className="steps-action"
         style={{
-          // marginTop: "100%",
           position: "sticky",
           top: "100%",
           width: "50%",
-          // left: 0,
-          // bottom: 0,
+          marginBottom: "20px",
         }}
       >
         {currentStep > 0 && (

@@ -78,9 +78,12 @@
   white-space: inherit;
 }
 
-.ant-btn-icon-only {
-  /*position: fixed;*/
-  /*bottom: 50px;*/
+.ant-typography {
+  font-size: 24px;
+}
+
+.ant-radio-wrapper {
+  font-size: 18px;
 }
 
 @keyframes App-logo-spin {
