@@ -19,8 +19,10 @@ const SnackMenu: FC = () => {
   const [snackChoice, setSnackChoice] = useState(appState.experiment.snack);
 
   const snacks = [
-    "Oatmeal raisin cookie and Chocolate chip cookie",
-    "Chocolate Bar or Granola Bar",
+    "Oatmeal raisin cookie",
+    " Chocolate chip cookie",
+    "Chocolate Bar",
+    " Granola Bar",
   ];
 
   return (
