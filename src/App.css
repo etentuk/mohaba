@@ -51,8 +51,6 @@
   justify-content: flex-end;
   position: sticky;
   width: 50%;
-  float: right;
-
   /*right: 0;*/
   /*bottom: 0;*/
 }
@@ -108,15 +106,10 @@
   }
 
   .ant-radio-wrapper {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .mental {
     align-items: flex-start;
   }
-
-  /*.Content_contentContainer__6EAQC {*/
-  /*  width: 90%;*/
-  /*  min-height: 90%;*/
-  /*}*/
 }

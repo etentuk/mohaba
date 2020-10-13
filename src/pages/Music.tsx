@@ -20,7 +20,7 @@ const Music: FC = () => {
         Please listen to the music until it is done in 60 seconds, after which
         you will be taken to the next page automatically.
       </P>
-      <SoundOutlined style={{ fontSize: "400px" }} className="musicImg" />
+      <SoundOutlined style={{ fontSize: "200px" }} className="musicImg" />
     </div>
   );
 };
