@@ -8,6 +8,7 @@ import appState from "../store";
 const MealMenu: FC = () => {
   const { Title, Paragraph: P } = Typography;
   const [visible, setVisible] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 4000);
@@ -59,6 +60,7 @@ const MealMenu: FC = () => {
           <div className="forwardBtn">
             <Button
               onClick={() => {
+                setClicked(true);
                 appState.experiment.meal = mealChoice;
                 message.info(
                   "You'll be taken to the next page in 20 seconds..."
@@ -69,7 +71,7 @@ const MealMenu: FC = () => {
                 return () => clearTimeout(timer);
               }}
               icon={<ArrowRightOutlined />}
-              disabled={!mealChoice}
+              disabled={!mealChoice || clicked}
             />
           </div>
         </>

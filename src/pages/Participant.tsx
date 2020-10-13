@@ -12,6 +12,7 @@ const ParticipantPage: FC = () => {
   const [subject, setSubject] = useState<Participant>(
     appState.experiment.participant
   );
+  const [clicked, setClicked] = useState(false);
 
   const ages = ["10-18", "19-28", "29-38", "39+"];
 
@@ -73,8 +74,9 @@ const ParticipantPage: FC = () => {
       <div className="forwardBtn">
         <Button
           icon={<ArrowRightOutlined />}
-          disabled={!subject.ageRange || !subject.gender}
+          disabled={!subject.ageRange || !subject.gender || clicked}
           onClick={() => {
+            setClicked(true);
             participant.ageRange = subject.ageRange;
             participant.gender = subject.gender;
             message.info("You'll be taken to the next page in 20 seconds...");
