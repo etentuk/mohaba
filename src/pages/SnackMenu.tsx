@@ -7,6 +7,7 @@ import { mealStyle } from "../ entities/constants";
 
 const SnackMenu: FC = () => {
   const { Title, Paragraph: P } = Typography;
+  const [clicked, setClicked] = useState(false);
 
   const [visible, setVisible] = useState(false);
 
@@ -55,6 +56,7 @@ const SnackMenu: FC = () => {
             <Button
               icon={<ArrowRightOutlined />}
               onClick={() => {
+                setClicked(true);
                 appState.experiment.snack = snackChoice;
                 message.info(
                   "You'll be taken to the next page in 20 seconds..."
@@ -64,7 +66,7 @@ const SnackMenu: FC = () => {
                 }, 4000);
                 return () => clearTimeout(timer);
               }}
-              disabled={!snackChoice}
+              disabled={!snackChoice || clicked}
             />
           </div>
         </>

@@ -9,6 +9,7 @@ const MentalAwareness: FC = () => {
   const [mentalTestResults, setMentalTestResults] = useState<Mental>(
     appState.experiment.mental
   );
+  const [clicked, setClicked] = useState(false);
 
   const { Paragraph: P, Title } = Typography;
 
@@ -44,6 +45,7 @@ const MentalAwareness: FC = () => {
   };
 
   const submitSurvey = async () => {
+    setClicked(true);
     await db.collection("experiments").add({
       ...appState.experiment,
       mental: { ...mentalTestResults },
@@ -175,7 +177,8 @@ const MentalAwareness: FC = () => {
           !mentalTestResults.alertness ||
           !mentalTestResults.sleep ||
           !mentalTestResults.excitement ||
-          !mentalTestResults.energy
+          !mentalTestResults.energy ||
+          clicked
         }
         onClick={() => {
           submitSurvey().then(null);
