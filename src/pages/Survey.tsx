@@ -77,7 +77,17 @@ const Survey: FC = () => {
           src={songs[0]?.url}
         />
       )}
-      <div className="steps-action">
+      <div
+        className="steps-action"
+        style={{
+          // marginTop: "100%",
+          position: "sticky",
+          top: "100%",
+          width: "50%",
+          // left: 0,
+          // bottom: 0,
+        }}
+      >
         {currentStep > 0 && (
           <Button
             icon={<ArrowLeftOutlined />}
