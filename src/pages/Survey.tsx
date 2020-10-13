@@ -70,7 +70,7 @@ const Survey: FC = () => {
           margin: "16px 0",
           minHeight: "200px",
           textAlign: "center",
-          paddingTop: "40px",
+          paddingTop: "39px",
         }}
       >
         {steps[currentStep].content}
