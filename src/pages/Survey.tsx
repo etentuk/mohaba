@@ -22,13 +22,13 @@ const Survey: FC = () => {
   const { Step } = Steps;
 
   const steps = [
-    { title: "", content: <Home /> },
-    { title: "", content: <ParticipantPage /> },
-    { title: "", content: <Music /> },
-    { title: "", content: <SnackMenu /> },
-    { title: "", content: <MealMenu /> },
-    { title: "", content: <MentalAwareness /> },
-    { title: "", content: <Conclusion /> },
+    { content: <Home /> },
+    { content: <ParticipantPage /> },
+    { content: <Music /> },
+    { content: <SnackMenu /> },
+    { content: <MealMenu /> },
+    { content: <MentalAwareness /> },
+    { content: <Conclusion /> },
   ];
 
   const onClickBack = () => {

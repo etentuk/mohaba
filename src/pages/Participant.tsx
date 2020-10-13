@@ -7,7 +7,7 @@ import { radioStyle } from "../ entities/constants";
 
 const ParticipantPage: FC = () => {
   const { participant } = appState.experiment;
-  const { Title, Paragraph: P } = Typography;
+  const { Title, Paragraph: P, Text: T } = Typography;
 
   const [subject, setSubject] = useState<Participant>(
     appState.experiment.participant
@@ -19,6 +19,8 @@ const ParticipantPage: FC = () => {
   return (
     <div>
       <Title>About you</Title>
+      <T style={{ fontSize: 15 }}>(Please keep your headphones on)</T>
+      <br />
       <div
         style={{
           display: "flex",
@@ -82,7 +84,7 @@ const ParticipantPage: FC = () => {
             message.info("You'll be taken to the next page in 20 seconds...");
             const timer = setTimeout(() => {
               appState.currentStep += 1;
-            }, 4000);
+            }, 20000);
             return () => clearTimeout(timer);
           }}
         />
