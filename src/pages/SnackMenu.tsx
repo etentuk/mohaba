@@ -12,7 +12,7 @@ const SnackMenu: FC = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 4000);
+    const timer = setTimeout(() => setVisible(true), 40000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -63,7 +63,7 @@ const SnackMenu: FC = () => {
                 );
                 const timer = setTimeout(() => {
                   appState.currentStep += 1;
-                }, 4000);
+                }, 20000);
                 return () => clearTimeout(timer);
               }}
               disabled={!snackChoice || clicked}

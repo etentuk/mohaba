@@ -8,7 +8,7 @@ const Music: FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       appState.currentStep += 1;
-    }, 3000);
+    }, 60000);
     return () => clearTimeout(timer);
   }, []);
 
