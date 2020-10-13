@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .App {
   text-align: center;
 }
@@ -28,11 +30,89 @@
   color: #61dafb;
 }
 
+
+.ant-typography {
+  font-weight: 200;
+  font-size: 20px;
+  font-family: "Apple Chancery", cursive;
+}
+.ant-layout-content Content_childContainer___fPo- {
+  height: 100%;
+}
+
+.ant-radio-group {
+  margin-bottom: 24px;
+  font-weight: 200;
+  font-size: 20px;
+  font-family: "Apple Chancery", cursive;}
+
+.forwardBtn {
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  width: 50%;
+  /*right: 0;*/
+  /*bottom: 0;*/
+}
+
+/*Metal Awareness*/
+.metalLists {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  line-height: 30px;
+}
+
+.mental {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mealMenuSpan > span.ant-radio + *,
+.snack > span.ant-radio + *{
+  white-space: pre-wrap;
+}
+
+#noWrap {
+  white-space: inherit;
+}
+
+.ant-typography {
+  font-size: 24px;
+}
+
+.ant-radio-wrapper {
+  font-size: 18px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-steps-horizontal.ant-steps-label-horizontal {
+    display: -ms-flexbox;
+    display: flex;
+    overflow: scroll;
+     flex-direction: row;
+  }
+
+  .musicImg {
+    width: 70%;
+    height: 200px;
+  }
+
+  .ant-radio-wrapper {
+    font-size: 14px;
+  }
+
+  .mental {
+    align-items: flex-start;
   }
 }
