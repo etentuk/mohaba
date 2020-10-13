@@ -2,7 +2,7 @@
     overflow: scroll;
     background: #DEB886;
     width: 80%;
-    min-height: 70%;
+    min-height: 90%;
     font-family: 'Open Sans', sans-serif;
     position: relative;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -31,7 +31,7 @@
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-image: url("https://media.istockphoto.com/photos/wood-texture-table-top-with-blur-light-gold-bokeh-in-caferestaurant-picture-id1129661826?b=1&k=6&m=1129661826&s=170667a&w=0&h=s8LNIbmo9-rLV60-JbNp1OE42dhD2D4Z_FsSvRruCTw=");
+    background-image: url("/bkg2.jpeg");
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
