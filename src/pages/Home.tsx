@@ -48,6 +48,10 @@ const Home: FC = () => {
         after listening to the music in the upcoming section.
       </P>
       <P>
+        Please do not use your device&apos;s pause button during the experiment,
+        the music will play automatically from the next page till the end.
+      </P>
+      <P>
         You can test your audio device with the sound below before proceeding to
         the test.
       </P>
