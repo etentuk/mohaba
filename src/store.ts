@@ -13,6 +13,7 @@ const initialExperiment: Experiment = {
   meal: "",
   mental: { alertness: "", energy: "", excitement: "", sleep: "" },
   musicSpeed: "slow",
+  lastEaten: "",
 };
 
 const appState = store({

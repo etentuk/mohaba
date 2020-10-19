@@ -19,10 +19,10 @@ const SnackMenu: FC = () => {
   const [snackChoice, setSnackChoice] = useState(appState.experiment.snack);
 
   const snacks = [
-    "Oatmeal raisin cookie",
-    " Chocolate chip cookie",
-    "Chocolate Bar",
-    " Granola Bar",
+    "Oatmeal raisin cookie (110 Calories)",
+    "Chocolate chip cookie (269 Calories)",
+    "Chocolate Bar (230 Calories)",
+    " Granola Bar (99 Calories)",
   ];
 
   return (
@@ -39,6 +39,8 @@ const SnackMenu: FC = () => {
             You are offered a little snack while you wait for your main menu
             please select a snack from the options
           </P>
+          <P>On the next page you will be able to choose your meal.</P>
+
           <div>
             <Radio.Group value={snackChoice}>
               {snacks.map((snack) => (

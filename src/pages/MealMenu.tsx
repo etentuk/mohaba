@@ -19,17 +19,17 @@ const MealMenu: FC = () => {
   const [mealChoice, setMealChoice] = useState(appState.experiment.meal);
 
   const mealMenu = [
-    "Sausage, Egg, & Cheddar Classic Breakfast Sandwich (500 calories)",
+    "Sausage, Egg, & Cheddar Classic Breakfast Sandwich (575 calories)",
     "Reduced-Fat Turkey-Style Bacon, Cheddar, & Egg White Breakfast (230 calories)\n",
-    "Bacon, Gouda, & Egg on Artisan Roll (370 calories)",
-    "Vegetable, Egg, & Fontiago on Multigrain Ciabatta (470 calories)",
-    "Spinach, Feta, & Egg White Breakfast Wrap (290 calories)",
-    "Rustic Bacon, Egg, & Cheese on Cheddar Chive Roll (470 calories)",
-    "Roasted Ham, Swiss, & Egg on Croissant Bun - PM bun (450 calories)",
-    "Egg & Cheddar on English Muffin (280 calories)",
-    "Double Smoked Bacon (490 calories)",
+    "Bacon, Gouda, & Egg on Artisan Roll (520 calories)",
+    "Vegetable, Egg, & Fontiago on Multigrain Ciabatta (250 calories)",
+    "Spinach, Feta, & Egg White Breakfast Wrap (235 calories)",
+    "Rustic Bacon, Egg, & Cheese on Cheddar Chive Roll (570 calories)",
+    "Roasted Ham, Swiss, & Egg on Croissant Bun - PM bun (550 calories)",
+    "Egg & Cheddar on English Muffin (240 calories)",
+    "Double Smoked Bacon (690 calories)",
     "Spicy Chorizo Monterey Jack and Egg (500 calories)",
-    "Gluten-free Canadian Bacon Breakfast Sandwich (280 calories)",
+    "Gluten-free Canadian Bacon Breakfast Sandwich (230 calories)",
   ];
 
   return (
@@ -40,7 +40,7 @@ const MealMenu: FC = () => {
           <P>
             Please as at a restaurant setting please imagine you about to select
             an item from the menu and select what you feel like having this
-            moment
+            moment.
           </P>
           <br />
           <Radio.Group
