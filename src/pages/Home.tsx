@@ -39,14 +39,19 @@ const Home: FC = () => {
         Management.
       </P>
       <P>
+        If you are located in mainland China, please enable your VPN before
+        taking this survey.
+      </P>
+      <P>
         Each page has approximately 40 - 60 seconds of music. Please use
-        headphones for this experiment and keep them on for the entire duration
-        of the experiment (8-10mins).
+        headphones for this experiment and keep them on at 60% volume for the
+        entire duration of the experiment (8-10mins).
       </P>
       <P>
         Imagine you are at a restaurant, select what you feel like ordering
         after listening to the music in the upcoming section.
       </P>
+
       <P>
         Please do not use your device&apos;s pause button during the experiment,
         the music will play automatically from the next page till the end.

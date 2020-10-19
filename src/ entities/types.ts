@@ -39,4 +39,5 @@ export type Experiment = {
   meal: string;
   mental: Mental;
   musicSpeed: "slow" | "fast";
+  lastEaten: string;
 };
