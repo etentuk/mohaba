@@ -11,6 +11,7 @@ import Conclusion from "./Conclusion";
 import appState from "../store";
 import Home from "./Home";
 import { audioElementId } from "../ entities/constants";
+import LastMeal from "./LastMeal";
 
 const Survey: FC = () => {
   const {
@@ -27,6 +28,7 @@ const Survey: FC = () => {
     { content: <Music /> },
     { content: <SnackMenu /> },
     { content: <MealMenu /> },
+    { content: <LastMeal /> },
     { content: <MentalAwareness /> },
     { content: <Conclusion /> },
   ];
